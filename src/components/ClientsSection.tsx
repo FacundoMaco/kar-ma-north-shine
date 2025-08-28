@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
-import northPeruImage from "@/assets/north-peru.jpg";
 
 const ClientsSection = () => {
   return (
@@ -17,12 +16,7 @@ const ClientsSection = () => {
 
         {/* Imagen representativa del norte */}
         <div className="mb-16">
-          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-            <img 
-              src={northPeruImage} 
-              alt="Norte del Perú" 
-              className="w-full h-full object-cover"
-            />
+          <div className="relative h-64 md:h-80 rounded-lg overflow-hidden bg-primary/20">
             <div className="absolute inset-0 bg-primary/60 flex items-center justify-center">
               <div className="text-center text-white">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">

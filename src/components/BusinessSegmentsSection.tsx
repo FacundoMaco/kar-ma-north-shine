@@ -1,7 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Factory } from "lucide-react";
-import retailImage from "@/assets/retail-products.jpg";
-import industrialImage from "@/assets/industrial-facility.jpg";
 
 const BusinessSegmentsSection = () => {
   return (
@@ -19,12 +17,8 @@ const BusinessSegmentsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Sal Retail */}
           <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-64 overflow-hidden">
-              <img 
-                src={retailImage} 
-                alt="Sal Retail" 
-                className="w-full h-full object-cover"
-              />
+            <div className="h-64 bg-primary/10 flex items-center justify-center">
+              <div className="text-primary font-semibold">Productos Retail</div>
             </div>
             <CardContent className="p-8">
               <div className="flex items-center space-x-3 mb-4">
@@ -50,12 +44,8 @@ const BusinessSegmentsSection = () => {
 
           {/* Sal Industrial */}
           <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="h-64 overflow-hidden">
-              <img 
-                src={industrialImage} 
-                alt="Sal Industrial" 
-                className="w-full h-full object-cover"
-              />
+            <div className="h-64 bg-primary/10 flex items-center justify-center">
+              <div className="text-primary font-semibold">Productos Industriales</div>
             </div>
             <CardContent className="p-8">
               <div className="flex items-center space-x-3 mb-4">

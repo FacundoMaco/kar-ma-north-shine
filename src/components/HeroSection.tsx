@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -11,12 +10,8 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-primary/80"></div>
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark">
       </div>
 
       {/* Content */}
