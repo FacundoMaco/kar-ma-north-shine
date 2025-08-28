@@ -16,9 +16,13 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Kar & Ma S.A.C.
-        </h1>
+        <div className="mb-8">
+          <img 
+            src="/assets/kar-ma-logo.png" 
+            alt="Kar & Ma" 
+            className="h-64 md:h-96 lg:h-[448px] w-auto mx-auto object-contain"
+          />
+        </div>
         <p className="text-xl md:text-2xl mb-4 font-medium">
           Excelencia en sal retail e industrial
         </p>

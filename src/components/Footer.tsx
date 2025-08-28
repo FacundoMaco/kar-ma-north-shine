@@ -7,15 +7,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            <div className="flex items-center mb-4">
               <img 
-                src="/assets/company-logo.png" 
-                alt="Kar & Ma S.A.C." 
-                className="h-10 w-10 object-contain filter brightness-0 invert"
+                src="/assets/kar-ma-logo.png" 
+                alt="Kar & Ma" 
+                className="h-12 w-auto object-contain filter brightness-0 invert"
               />
-              <div className="text-xl font-semibold">
-                Kar & Ma S.A.C.
-              </div>
             </div>
             <p className="text-primary-foreground/80 mb-4 max-w-md">
               Consorcio peruano con más de 30 años de experiencia en la producción 
@@ -80,7 +77,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60">
-            © {currentYear} Kar & Ma S.A.C. Todos los derechos reservados. 
+            © {currentYear} Kar & Ma. Todos los derechos reservados. 
             Tradición salinera del norte peruano.
           </p>
         </div>
