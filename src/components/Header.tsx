@@ -105,10 +105,15 @@ const Header = () => {
                 Clientes
               </button>
               <button 
-                onClick={() => scrollToSection('contacto')}
-                className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+                onClick={() => {
+                  const phoneNumber = '51999999999'; // Reemplaza con el número real
+                  const message = 'Hola, quisiera información acerca de sus productos y precios para cotizar al por menor o mayor.';
+                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
+                className="px-4 py-2 rounded-full text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg"
               >
-                Contacto
+                Cotización
               </button>
             </nav>
 
@@ -157,10 +162,15 @@ const Header = () => {
                   Clientes
                 </button>
                 <button 
-                  onClick={() => scrollToSection('contacto')}
-                  className="text-left px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+                  onClick={() => {
+                    const phoneNumber = '51999999999'; // Reemplaza con el número real
+                    const message = 'Hola, quisiera información acerca de sus productos y precios para cotizar al por menor o mayor.';
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
+                  className="text-left px-4 py-3 rounded-xl text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg"
                 >
-                  Contacto
+                  Cotización
                 </button>
               </nav>
             </div>
