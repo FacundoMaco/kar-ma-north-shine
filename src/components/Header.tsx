@@ -89,17 +89,22 @@ const Header = () => {
                 onClick={scrollToTop}
                 className="flex items-center hover:scale-105 transition-all duration-500 ease-out"
               >
-                <img 
-                  src="/assets/logoverde.png" 
-                  alt="Kar & Ma" 
-                  style={{
-                    transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)"
-                  }}
-                  className={`
-                    will-change-[height] motion-reduce:transition-none motion-safe:transition-all
-                    ${isScrolled ? 'h-16' : 'h-20'} w-auto object-contain
-                  `}
-                />
+                <div className="relative">
+                  <img 
+                    src="/assets/logoverde.png" 
+                    alt="Kar & Ma" 
+                    style={{
+                      transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)",
+                      transform: "translateX(-50%)",
+                      left: "50%",
+                      position: "relative"
+                    }}
+                    className={`
+                      will-change-[height] motion-reduce:transition-none motion-safe:transition-all
+                      ${isScrolled ? 'h-16' : 'h-20'} w-auto object-contain
+                    `}
+                  />
+                </div>
               </button>
             </div>
 

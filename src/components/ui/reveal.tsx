@@ -39,7 +39,7 @@ export const Reveal = ({
   };
 
   return (
-    <div style={{ position: "relative", width, overflow: "hidden" }}>
+    <div style={{ position: "relative", width }}>
       <motion.div
         variants={{
           hidden: getInitial(),
@@ -47,7 +47,7 @@ export const Reveal = ({
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ 
           duration: 0.8,
           delay,

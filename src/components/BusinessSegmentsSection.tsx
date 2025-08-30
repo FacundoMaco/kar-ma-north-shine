@@ -1,60 +1,36 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Factory } from "lucide-react";
-import { motion } from "framer-motion";
-import React from "react";
+import { Reveal } from "@/components/ui/reveal";
 
-export const BusinessSegmentsSection: React.FC = () => {
+const BusinessSegmentsSection = () => {
   return (
-    <motion.section id="segmentos" className="py-20 bg-secondary/50">
+    <section id="segmentos" className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold text-primary mb-4"
-          >
-            Segmentos de Negocio
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
-          >
-            Dos líneas de negocio especializadas para atender diferentes mercados
-          </motion.p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <div className="flex flex-col items-center">
+            <Reveal>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                Segmentos de Negocio
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="text-xl text-muted-foreground max-w-3xl">
+                Dos líneas de negocio especializadas para atender diferentes mercados
+              </p>
+            </Reveal>
+          </div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Sal Retail */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="h-64 bg-primary/10 flex items-center justify-center"
-              >
+          <Reveal direction="left" delay={0.4} width="100%">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="h-64 bg-primary/10 flex items-center justify-center">
                 <div className="text-primary font-semibold">Productos Retail</div>
-              </motion.div>
+              </div>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-4">
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-                  >
-                    <Home className="w-8 h-8 text-primary" />
-                  </motion.div>
+                  <Home className="w-8 h-8 text-primary" />
                   <h3 className="text-2xl font-semibold text-primary">Sal Retail</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -65,101 +41,58 @@ export const BusinessSegmentsSection: React.FC = () => {
                 <div className="space-y-2">
                   <h4 className="font-semibold text-foreground">Productos incluidos:</h4>
                   <ul className="text-muted-foreground space-y-1">
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                      viewport={{ once: true }}
-                    >• Sal de mesa refinada</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >• Sal marina natural</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >• Sal yodada</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >• Especialidades gastronómicas</motion.li>
+                    <li>• Sal de mesa refinada</li>
+                    <li>• Sal marina natural</li>
+                    <li>• Sal yodada</li>
+                    <li>• Especialidades gastronómicas</li>
                   </ul>
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </Reveal>
 
           {/* Sal Industrial */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="h-64 bg-primary/10 flex items-center justify-center"
-              >
+          <Reveal direction="right" delay={0.6} width="100%">
+            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="h-64 bg-primary/10 flex items-center justify-center">
                 <div className="text-primary font-semibold">Productos Industriales</div>
-              </motion.div>
+              </div>
               <CardContent className="p-8">
                 <div className="flex items-center space-x-3 mb-4">
-                  <motion.div
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
-                  >
-                    <Factory className="w-8 h-8 text-primary" />
-                  </motion.div>
+                  <Factory className="w-8 h-8 text-primary" />
                   <h3 className="text-2xl font-semibold text-primary">Sal Industrial</h3>
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Soluciones especializadas para industrias que requieren sal en sus procesos. 
-                  Proveemos sal industrial de alta calidad para diversos sectores como 
-                  manufactura, tratamiento de agua y procesos químicos.
+                  Soluciones especializadas para grandes empresas y sectores industriales. 
+                  Suministramos sal técnica, sal para procesamiento de alimentos, conservación 
+                  y aplicaciones industriales específicas.
                 </p>
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-foreground">Aplicaciones principales:</h4>
+                  <h4 className="font-semibold text-foreground">Sectores atendidos:</h4>
                   <ul className="text-muted-foreground space-y-1">
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                      viewport={{ once: true }}
-                    >• Tratamiento de agua</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      viewport={{ once: true }}
-                    >• Procesos químicos</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
-                      viewport={{ once: true }}
-                    >• Industria alimentaria</motion.li>
-                    <motion.li
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >• Manufactura general</motion.li>
+                    <li>• Industria alimentaria</li>
+                    <li>• Sector pesquero</li>
+                    <li>• Industria agrícola</li>
+                    <li>• Procesos industriales</li>
                   </ul>
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </Reveal>
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <Reveal delay={0.5} width="100%">
+            <div className="text-center">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Cada segmento cuenta con procesos de producción especializados y control de calidad 
+                adaptado a las necesidades específicas del mercado objetivo.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
