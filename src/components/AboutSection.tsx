@@ -1,35 +1,42 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Target, Heart } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 const AboutSection = () => {
   return (
     <section id="nosotros" className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Nosotros
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Historia del Grupo Kar & Ma
-          </p>
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Nosotros
+            </h2>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Historia del Grupo Kar & Ma
+            </p>
+          </Reveal>
         </div>
 
         {/* Historia */}
         <div className="mb-16">
-          <Card className="max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-semibold text-primary mb-6">Nuestra Historia</h3>
-              <p className="text-lg leading-relaxed mb-6">
-                Durante más de tres décadas, Kar & Ma S.A.C. ha sido un pilar fundamental en la industria salinera peruana. 
-                Nacimos en el norte del país con la visión de proporcionar sal de la más alta calidad tanto para el consumo 
-                retail como para las grandes industrias nacionales.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Nuestro compromiso con la excelencia nos ha permitido expandirnos y consolidarnos como un consorcio de 
-                confianza, respaldado por la tradición y el trabajo del pueblo del norte peruano.
-              </p>
-            </CardContent>
-          </Card>
+          <Reveal direction="left" width="100%">
+            <Card className="max-w-4xl mx-auto">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-primary mb-6">Nuestra Historia</h3>
+                <p className="text-lg leading-relaxed mb-6">
+                  Durante más de tres décadas, Kar & Ma S.A.C. ha sido un pilar fundamental en la industria salinera peruana. 
+                  Nacimos en el norte del país con la visión de proporcionar sal de la más alta calidad tanto para el consumo 
+                  retail como para las grandes industrias nacionales.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Nuestro compromiso con la excelencia nos ha permitido expandirnos y consolidarnos como un consorcio de 
+                  confianza, respaldado por la tradición y el trabajo del pueblo del norte peruano.
+                </p>
+              </CardContent>
+            </Card>
+          </Reveal>
         </div>
 
         {/* Misión, Visión, Valores */}

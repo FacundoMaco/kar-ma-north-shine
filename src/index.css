@@ -117,3 +117,19 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Navbar animations */
+@layer components {
+  .nav-container {
+    transform-origin: top left;
+    will-change: width, height, border-radius, transform;
+  }
+
+  .nav-container img {
+    will-change: width, height, transform;
+  }
+
+  .nav-link-container {
+    will-change: opacity, transform;
+  }
+}

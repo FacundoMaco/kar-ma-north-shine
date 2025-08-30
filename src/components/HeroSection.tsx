@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -16,27 +17,34 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="mb-8">
-          <img 
-            src="/assets/kar-ma-logo.png" 
-            alt="Kar & Ma" 
-            className="h-64 md:h-96 lg:h-[448px] w-auto mx-auto object-contain"
-          />
-        </div>
-        <p className="text-xl md:text-2xl mb-4 font-medium">
-          Excelencia en sal retail e industrial
-        </p>
-        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
-          Consorcio con más de 30 años de experiencia produciendo sal para empresas e industria local
-        </p>
-        
-        <Button 
-          onClick={scrollToContact}
-          size="lg"
-          className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-3 font-semibold"
-        >
-          Contáctanos
-        </Button>
+        <Reveal>
+          <div className="mb-8">
+            <img 
+              src="/assets/kar-ma-logo.png" 
+              alt="Kar & Ma" 
+              className="h-64 md:h-96 lg:h-[448px] w-auto mx-auto object-contain"
+            />
+          </div>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="text-xl md:text-2xl mb-4 font-medium">
+            Excelencia en sal retail e industrial
+          </p>
+        </Reveal>
+        <Reveal delay={0.4}>
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
+            Consorcio con más de 30 años de experiencia produciendo sal para empresas e industria local
+          </p>
+        </Reveal>
+        <Reveal delay={0.6}>
+          <Button 
+            onClick={scrollToContact}
+            size="lg"
+            className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-3 font-semibold"
+          >
+            Contáctanos
+          </Button>
+        </Reveal>
       </div>
 
       {/* Scroll indicator */}

@@ -31,14 +31,26 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed z-50 transition-all duration-700 ease-out ${isScrolled ? 'top-4 left-1/2 transform -translate-x-1/2' : 'top-0 left-0 right-0'}`}>
+    <header 
+      className={`
+        fixed z-50 left-0 right-0
+        ${isScrolled ? 'top-4' : 'top-0'}
+      `}
+    >
       {/* Dynamic Island Navbar con Liquid Glass Effect */}
       <div 
+        style={{
+          transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)",
+          width: isScrolled ? '700px' : '100%',
+          margin: '0 auto',
+          transformOrigin: 'center top'
+        }}
         className={`
-          relative overflow-hidden transition-all duration-700 ease-out transform
+          relative overflow-hidden will-change-[width,border-radius]
+          motion-reduce:transition-none motion-safe:transition-all
           ${isScrolled 
-            ? 'bg-background/85 backdrop-blur-2xl border border-white/25 shadow-2xl shadow-black/25 rounded-2xl scale-105' 
-            : 'bg-background/95 backdrop-blur-2xl border border-white/30 shadow-2xl shadow-black/30 rounded-none scale-100 w-full'
+            ? 'bg-background/85 backdrop-blur-2xl border border-white/25 shadow-2xl shadow-black/25 rounded-[28px]' 
+            : 'bg-background/95 backdrop-blur-2xl border border-white/30 shadow-2xl shadow-black/30 rounded-none'
           }
           ${isMenuOpen ? 'rounded-3xl' : ''}
         `}
@@ -54,20 +66,39 @@ const Header = () => {
         
         {/* Main Content */}
         <div className="relative z-10">
-          <div className={`
-            flex items-center justify-between transition-all duration-700 ease-out
-            ${isScrolled ? 'px-6 py-3 min-w-[700px] max-w-[900px]' : 'px-8 py-4 w-full max-w-none'}
-          `}>
+          <div 
+            style={{
+              transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)"
+            }}
+            className={`
+              flex items-center justify-between
+              motion-reduce:transition-none motion-safe:transition-all
+              ${isScrolled ? 'px-6 py-3' : 'px-8 py-4'}
+            `}>
             {/* Logo con animación - visible siempre pero con diferentes tamaños */}
-            <div className={`flex items-center transition-all duration-700 ease-out ${isScrolled ? 'opacity-100 scale-100' : 'opacity-100 scale-100'}`}>
+            <div 
+              style={{
+                transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)"
+              }}
+              className={`
+                flex items-center
+                motion-reduce:transition-none motion-safe:transition-all
+              `}
+            >
               <button 
                 onClick={scrollToTop}
-                className="flex items-center hover:scale-105 transition-all duration-300"
+                className="flex items-center hover:scale-105 transition-all duration-500 ease-out"
               >
                 <img 
                   src="/assets/logoverde.png" 
                   alt="Kar & Ma" 
-                  className={`transition-all duration-700 ease-out ${isScrolled ? 'h-16' : 'h-20'} w-auto object-contain`}
+                  style={{
+                    transition: "all 800ms cubic-bezier(0.4, 0, 0.2, 1)"
+                  }}
+                  className={`
+                    will-change-[height] motion-reduce:transition-none motion-safe:transition-all
+                    ${isScrolled ? 'h-16' : 'h-20'} w-auto object-contain
+                  `}
                 />
               </button>
             </div>
