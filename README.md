@@ -46,3 +46,4 @@ kar-ma/
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/tuusuario/kar-ma.git
+# Deploy fix
