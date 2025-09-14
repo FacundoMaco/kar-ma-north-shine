@@ -79,7 +79,7 @@ const HeroSection = () => {
             onClick={scrollToNext}
             variant="outline"
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
+            className="border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
           >
             Conoce nuestros productos
           </Button>
