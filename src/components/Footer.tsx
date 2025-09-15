@@ -186,7 +186,10 @@ const Footer = () => {
               © {currentYear} Kar & Ma. Todos los derechos reservados. 
               Tradición salinera del norte peruano.
             </p>
-            <div className="flex gap-6 text-primary-foreground/60">
+            <div className="flex gap-6 text-primary-foreground/60 items-center">
+              <span className="text-xs opacity-70 px-2 py-1 rounded bg-primary-foreground/10">
+                v:{typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__.slice(0,7) : 'local'} · {typeof __BUILD_TIME__ !== 'undefined' ? new Date(__BUILD_TIME__).toLocaleString() : ''}
+              </span>
               <span className="hover:text-white transition-colors cursor-pointer">Política de Privacidad</span>
               <span className="hover:text-white transition-colors cursor-pointer">Términos de Servicio</span>
             </div>
