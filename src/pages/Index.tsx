@@ -1,11 +1,13 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import SegmentCards from "@/components/SegmentCards";
+import MetricsSection from "@/components/MetricsSection";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import AboutSection from "@/components/AboutSection";
 import SubbrandsSection from "@/components/SubbrandsSection";
 import BusinessSegmentsSection from "@/components/BusinessSegmentsSection";
 import ClientsSection from "@/components/ClientsSection";
 import ContactSection from "@/components/ContactSection";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -14,6 +16,9 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <SegmentCards />
+        <MetricsSection />
+        <FeaturedProducts />
         <AboutSection />
         <SubbrandsSection />
         <BusinessSegmentsSection />
@@ -21,7 +26,6 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

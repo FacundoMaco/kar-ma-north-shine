@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
+# 🌊 Kar & Ma S.A.C.
 
-## Project info
+**Kar & Ma S.A.C.** es una empresa peruana con más de **30 años de trayectoria** en la industria de la sal, ofreciendo soluciones de calidad para el sector **retail** y **uso industrial**.  
 
-**URL**: https://lovable.dev/projects/121a3c79-65f3-4bb9-b7b9-eda8e1898e99
+Este repositorio contiene el código y los recursos de la **landing page corporativa** de Kar & Ma, desarrollada para comunicar su solidez, tradición e innovación.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Tecnologías utilizadas
 
-**Use Lovable**
+- **Next.js 14** – Framework principal
+- **React 18** – Librería de componentes
+- **TypeScript** – Tipado estático para mayor robustez
+- **Tailwind CSS** – Estilos modernos y responsivos
+- **Framer Motion** – Animaciones fluidas
+- **Vercel** – Hosting y despliegue
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/121a3c79-65f3-4bb9-b7b9-eda8e1898e99) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📂 Estructura del proyecto
+kar-ma/
+├── public/         # Imágenes, logos y assets estáticos
+├── src/
+│   ├── components/ # Componentes reutilizables
+│   ├── pages/      # Páginas principales
+│   ├── styles/     # Estilos globales y configuraciones
+│   └── utils/      # Funciones auxiliares
+├── package.json
+├── tailwind.config.js
+└── README.md
+---
 
-**Use your preferred IDE**
+## 🌐 Secciones principales
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Inicio** – Presentación de la empresa  
+- **Nosotros** – Historia y trayectoria de 30 años  
+- **Productos** – División Retail & Industrial  
+- **Marcas** – Submarcas destacadas: *Salina* y *Norteñita*  
+- **Clientes & Partners** – Confianza del pueblo y aliados estratégicos  
+- **Contacto** – Formulario y datos de la empresa  
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📦 Instalación y ejecución
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/121a3c79-65f3-4bb9-b7b9-eda8e1898e99) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/kar-ma.git
+# Deploy fix

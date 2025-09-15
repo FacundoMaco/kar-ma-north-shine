@@ -39,25 +39,6 @@ const ClientsSection = () => {
           </div>
         </Reveal>
 
-        {/* Logos de empresas (siluetas) */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-center text-primary mb-12">
-            Empresas que Confían en Nosotros
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <Reveal key={item} direction="up" delay={0.2 * (item - 1)} width="100%">
-                <div className="flex items-center justify-center p-6 bg-secondary rounded-lg">
-                  <div className="w-20 h-12 bg-muted rounded flex items-center justify-center">
-                    <span className="text-muted-foreground text-sm font-medium">
-                      Cliente {item}
-                    </span>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
 
         {/* Testimonios */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -100,7 +81,7 @@ const ClientsSection = () => {
           <Reveal delay={0.5} width="100%">
             <div className="text-center">
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Más de 300 empresas del norte del Perú confían en nuestros productos y servicios, 
+                Empresas del norte del Perú confían en nuestros productos y servicios, 
                 desde pequeños negocios familiares hasta grandes corporaciones industriales.
               </p>
             </div>
