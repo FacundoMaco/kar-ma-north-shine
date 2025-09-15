@@ -8,6 +8,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/ui/reveal";
 import { CONTACT_EMAIL, CONTACT_PHONE, WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_PHONE } from "@/config";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -146,52 +147,6 @@ const ContactSection = () => {
                       Zona Industrial Salinera
                     </p>
                   </div>
-</CardContent>
-</Card>
-
-<Card>
-  <CardContent className="p-6">
-    <div className="flex items-start space-x-4">
-      <Mail className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-      <div>
-        <h4 className="font-semibold text-foreground mb-2">Email</h4>
-        <p className="text-muted-foreground">{CONTACT_EMAIL ? CONTACT_EMAIL : "contacto@karma.com.pe"}</p>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
-<Card>
-  <CardContent className="p-6">
-    <div className="flex items-start space-x-4">
-      <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-      <div>
-        <h4 className="font-semibold text-foreground mb-2">Teléfono</h4>
-        <p className="text-muted-foreground">{CONTACT_PHONE ? CONTACT_PHONE : "+51 999 999 999"}</p>
-      </div>
-    </div>
-  </CardContent>
-</Card>
-
-{/* WhatsApp Business */}
-<Card className="bg-green-50 border-green-200">
-  <CardContent className="p-6">
-    <h4 className="font-semibold text-green-800 mb-4">WhatsApp Business</h4>
-    <p className="text-green-700 mb-4">
-      Para consultas rápidas de precios y disponibilidad
-    </p>
-    <Button 
-      className="bg-green-600 hover:bg-green-700 text-white w-full"
-      onClick={() => window.open(
-        `https://wa.me/${WHATSAPP_PHONE ? WHATSAPP_PHONE : "51999999999"}?text=${
-          encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE ? WHATSAPP_DEFAULT_MESSAGE : "Hola, necesito información sobre sus productos de sal para mi empresa.")
-        }`
-      )}
-    >
-      Consulta por WhatsApp
-    </Button>
-  </CardContent>
-</Card>
                 </div>
               </CardContent>
             </Card>
@@ -202,9 +157,7 @@ const ContactSection = () => {
                   <Mail className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Email</h4>
-                    <p className="text-muted-foreground">
-                      contacto@karma.com.pe
-                    </p>
+                    <p className="text-muted-foreground">{CONTACT_EMAIL ? CONTACT_EMAIL : "contacto@karma.com.pe"}</p>
                   </div>
                 </div>
               </CardContent>
@@ -216,9 +169,7 @@ const ContactSection = () => {
                   <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Teléfono</h4>
-                    <p className="text-muted-foreground">
-                      +51 999 999 999
-                    </p>
+                    <p className="text-muted-foreground">{CONTACT_PHONE ? CONTACT_PHONE : "+51 999 999 999"}</p>
                   </div>
                 </div>
               </CardContent>
@@ -233,7 +184,11 @@ const ContactSection = () => {
                 </p>
                 <Button 
                   className="bg-green-600 hover:bg-green-700 text-white w-full"
-                  onClick={() => window.open('https://wa.me/51999999999?text=Hola, necesito información sobre sus productos de sal para mi empresa.')}
+                  onClick={() => window.open(
+                    `https://wa.me/${WHATSAPP_PHONE ? WHATSAPP_PHONE : "51999999999"}?text=${
+                      encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE ? WHATSAPP_DEFAULT_MESSAGE : "Hola, necesito información sobre sus productos de sal para mi empresa.")
+                    }`
+                  )}
                 >
                   Consulta por WhatsApp
                 </Button>
