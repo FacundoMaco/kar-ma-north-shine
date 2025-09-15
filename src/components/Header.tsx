@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_PHONE } from "@/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,6 +86,7 @@ const Header = () => {
               `}
             >
               <button 
+                type="button"
                 onClick={scrollToTop}
                 className="flex items-center hover:scale-105 transition-all duration-500 ease-out"
               >
@@ -111,40 +112,44 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className={`hidden md:flex items-center space-x-2 transition-all duration-700 ease-out ${isScrolled ? 'ml-0' : 'ml-0'}`}>
               <button 
+                type="button"
                 onClick={() => scrollToSection('home')}
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Inicio
               </button>
               <button 
+                type="button"
                 onClick={() => scrollToSection('nosotros')}
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Nosotros
               </button>
               <button 
+                type="button"
                 onClick={() => scrollToSection('submarcas')}
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Submarcas
               </button>
               <button 
+                type="button"
                 onClick={() => scrollToSection('segmentos')}
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Segmentos
               </button>
               <button 
+                type="button"
                 onClick={() => scrollToSection('clientes')}
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Clientes
               </button>
               <button 
+                type="button"
                 onClick={() => {
-                  const phoneNumber = '51999999999'; // Reemplaza con el número real
-                  const message = 'Hola, quisiera información acerca de sus productos y precios para cotizar al por menor o mayor.';
-                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
                   window.open(whatsappUrl, '_blank');
                 }}
                 className="px-4 py-2 rounded-full text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg"
@@ -154,7 +159,11 @@ const Header = () => {
             </nav>
 
             {/* Mobile menu button con animación */}
-            <button
+              <button
+              type="button"
+              aria-label="Abrir menú"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`md:hidden p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110 ${isScrolled ? 'ml-0' : 'ml-0'}`}
             >
@@ -164,7 +173,7 @@ const Header = () => {
 
           {/* Mobile Navigation - Dynamic Island Expansion con Liquid Glass */}
           {isMenuOpen && (
-            <div className="md:hidden border-t border-white/20 bg-background/90 backdrop-blur-2xl rounded-b-3xl shadow-xl">
+            <div id="mobile-menu" className="md:hidden border-t border-white/20 bg-background/90 backdrop-blur-2xl rounded-b-3xl shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-60"></div>
               <nav className="relative z-10 flex flex-col p-4 space-y-2">
                 <button 
@@ -199,9 +208,7 @@ const Header = () => {
                 </button>
                 <button 
                   onClick={() => {
-                    const phoneNumber = '51999999999'; // Reemplaza con el número real
-                    const message = 'Hola, quisiera información acerca de sus productos y precios para cotizar al por menor o mayor.';
-                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
                     window.open(whatsappUrl, '_blank');
                   }}
                   className="text-left px-4 py-3 rounded-xl text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg"

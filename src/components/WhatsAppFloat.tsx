@@ -1,10 +1,9 @@
 import { MessageCircle } from "lucide-react";
+import { WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_PHONE } from "@/config";
 
 const WhatsAppFloat = () => {
   const handleWhatsAppClick = () => {
-    const message = "Hola, soy una empresa interesada en sus productos de sal. Me gustaría recibir información sobre precios y disponibilidad.";
-    const phoneNumber = "51999999999";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`;
     window.open(url, '_blank');
   };
 

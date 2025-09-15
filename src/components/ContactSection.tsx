@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/ui/reveal";
+import { CONTACT_EMAIL, CONTACT_PHONE, WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_PHONE } from "@/config";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -143,9 +144,7 @@ const ContactSection = () => {
                     <Mail className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Email</h4>
-                      <p className="text-muted-foreground">
-                        contacto@karma.com.pe
-                      </p>
+                      <p className="text-muted-foreground">{CONTACT_EMAIL}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -157,9 +156,7 @@ const ContactSection = () => {
                     <Phone className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-foreground mb-2">Teléfono</h4>
-                      <p className="text-muted-foreground">
-                        +51 999 999 999
-                      </p>
+                      <p className="text-muted-foreground">{CONTACT_PHONE}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -174,7 +171,7 @@ const ContactSection = () => {
                   </p>
                   <Button 
                     className="bg-green-600 hover:bg-green-700 text-white w-full"
-                    onClick={() => window.open('https://wa.me/51999999999?text=Hola, necesito información sobre sus productos de sal para mi empresa.')}
+                    onClick={() => window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(WHATSAPP_DEFAULT_MESSAGE)}`)}
                   >
                     Consulta por WhatsApp
                   </Button>

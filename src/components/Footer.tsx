@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/reveal";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/config";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,7 +24,7 @@ const Footer = () => {
               </p>
               <div className="text-sm text-primary-foreground/60">
                 <p>Planta Industrial - Región Norte del Perú</p>
-                <p>contacto@karma.com.pe | +51 999 999 999</p>
+                <p>{CONTACT_EMAIL} | {CONTACT_PHONE}</p>
               </div>
             </Reveal>
           </div>
