@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/reveal";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/config";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
@@ -17,11 +19,11 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-primary via-primary to-primary-dark text-primary-foreground relative overflow-hidden">
-      {/* Background texture */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_3px_3px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:40px_40px]" />
-      </div>
+<footer className="bg-gradient-to-br from-primary via-primary to-primary-dark text-primary-foreground relative overflow-hidden">
+  {/* Textura de fondo */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_3px_3px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:40px_40px]" />
+  </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* CTA Section */}
