@@ -7,6 +7,10 @@ All colors MUST be HSL.
 */
 
 @layer base {
+  html, body {
+    overflow-x: hidden;
+  }
+  
   :root {
     /* Corporate brand colors */
     --background: 0 0% 100%;

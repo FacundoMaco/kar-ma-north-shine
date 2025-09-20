@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,61 +17,94 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <motion.nav
-      layout // Esto permite que Framer Motion anime automáticamente los cambios de layout
-      className={cn(
-        'fixed top-6 left-6 z-50 flex items-center justify-center transition-all duration-700 ease-in-out',
-        isScrolled ? 'w-20 h-20' : 'w-full h-[120px] px-6'
-      )}
-      initial={false} // Deshabilita la animación inicial
-      style={{
-        backgroundColor: 'rgb(var(--primary))',
-        clipPath: isScrolled
-          ? 'circle(50% at 50% 50%)'
-          : 'inset(0 0 0 0)',
-      }}
-    >
-      <motion.div
+    <>
+      <motion.nav
         layout
-        className="flex items-center justify-between w-full h-full"
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out',
+          isScrolled 
+            ? 'bg-primary/95 backdrop-blur-sm shadow-lg' 
+            : 'bg-transparent'
+        )}
+        initial={false}
       >
-        {/* Logo */}
-        <motion.img
-          src="/assets/kar-ma-logo.png"
-          alt="Kar & Ma"
-          className={cn(
-            'transition-all duration-700',
-            isScrolled ? 'w-12 h-12' : 'w-24 h-24'
-          )}
-        />
-        
-        {/* Links de navegación - solo visibles cuando no está scrolleado */}
-        <motion.div
-          layout
-          className={cn(
-            'flex gap-8 items-center transition-opacity duration-300',
-            isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          )}
-        >
-          <NavLink href="#home">Inicio</NavLink>
-          <NavLink href="#segmentos">Segmentos</NavLink>
-          <NavLink href="#nosotros">Nosotros</NavLink>
-          <NavLink href="#clientes">Clientes</NavLink>
-          <NavLink href="#contacto">Contacto</NavLink>
-        </motion.div>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <motion.img
+              src="/assets/kar-ma-logo.png"
+              alt="Kar & Ma"
+              className={cn(
+                'transition-all duration-700 filter brightness-0 invert',
+                isScrolled ? 'w-10 h-10 md:w-12 md:h-12' : 'w-12 h-12 md:w-16 md:h-16'
+              )}
+            />
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <NavLink href="#segmentos">Segmentos</NavLink>
+              <NavLink href="#nosotros">Nosotros</NavLink>
+              <NavLink href="#clientes">Clientes</NavLink>
+              <NavLink href="#contacto">Contacto</NavLink>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden text-white p-2"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <motion.div
+        initial={false}
+        animate={{
+          height: isMobileMenuOpen ? 'auto' : 0,
+          opacity: isMobileMenuOpen ? 1 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-16 md:hidden left-0 right-0 z-40 bg-primary/95 backdrop-blur-sm overflow-hidden"
+      >
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col space-y-4">
+            <NavLink href="#segmentos" onClick={() => setIsMobileMenuOpen(false)}>Segmentos</NavLink>
+            <NavLink href="#nosotros" onClick={() => setIsMobileMenuOpen(false)}>Nosotros</NavLink>
+            <NavLink href="#clientes" onClick={() => setIsMobileMenuOpen(false)}>Clientes</NavLink>
+            <NavLink href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>Contacto</NavLink>
+          </div>
+        </div>
       </motion.div>
-    </motion.nav>
+    </>
   );
 };
 
-const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({
+const NavLink: React.FC<{ 
+  href: string; 
+  children: React.ReactNode; 
+  onClick?: () => void;
+}> = ({
   href,
   children,
+  onClick,
 }) => (
   <motion.a
     href={href}
-    className="text-white hover:text-white/80 font-medium text-lg transition-colors"
+    onClick={onClick}
+    className="text-white hover:text-white/80 font-medium text-lg transition-colors block py-2"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >

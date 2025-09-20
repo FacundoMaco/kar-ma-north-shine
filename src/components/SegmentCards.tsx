@@ -10,7 +10,7 @@ const SegmentCards = () => {
       title: "Retail",
       description: "Productos de sal premium para el consumidor final, con presentaciones innovadoras y calidad excepcional.",
       icon: Package,
-      image: "/src/assets/retail-products.jpg",
+      image: "/assets/retail-products.jpg",
       cta: "Ver productos retail",
       gradient: "from-blue-50 to-blue-100",
       hoverGradient: "from-blue-100 to-blue-200"
@@ -20,7 +20,7 @@ const SegmentCards = () => {
       title: "Industrial",
       description: "Soluciones industriales de sal para procesos manufactureros, con especificaciones técnicas precisas.",
       icon: Factory,
-      image: "/src/assets/industrial-facility.jpg",
+      image: "/assets/industrial-facility.jpg",
       cta: "Ver soluciones industriales",
       gradient: "from-slate-50 to-slate-100",
       hoverGradient: "from-slate-100 to-slate-200"
@@ -44,13 +44,22 @@ const SegmentCards = () => {
                 className="group"
               >
                 <Card className="h-full overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50">
-                  <div className={`h-48 bg-gradient-to-br ${segment.gradient} group-hover:${segment.hoverGradient} transition-all duration-500 relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-500" />
+                  <div className="h-48 relative overflow-hidden">
+                    {/* Imagen de fondo */}
+                    <img 
+                      src={segment.image} 
+                      alt={segment.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent group-hover:from-primary/30 group-hover:via-primary/20 transition-all duration-500" />
+                    {/* Icono */}
                     <div className="absolute top-6 left-6">
                       <div className="w-12 h-12 bg-white/90 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                         <IconComponent className="w-6 h-6 text-primary" />
                       </div>
                     </div>
+                    {/* Elemento decorativo */}
                     <div className="absolute bottom-6 right-6">
                       <div className="w-20 h-20 bg-white/20 rounded-full blur-xl group-hover:bg-white/30 transition-all duration-500" />
                     </div>

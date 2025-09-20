@@ -19,14 +19,21 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with enhanced gradient and texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-dark">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/assets/hero-image.jpg" 
+          alt="Salinas de Kar & Ma" 
+          className="w-full h-full object-cover"
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-primary-dark/80" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_4px_4px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:50px_50px] opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white flex flex-col items-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white flex flex-col items-center min-h-screen justify-center py-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -48,7 +55,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mb-6"
         >
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent px-4">
             Excelencia en sal retail e industrial
           </h1>
         </motion.div>
@@ -57,52 +64,54 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-lg md:text-2xl mb-8 max-w-4xl mx-auto text-white/90 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 max-w-4xl mx-auto text-white/90 leading-relaxed px-4"
         >
           Consorcio con más de 30 años de experiencia produciendo sal para empresas e industria local
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Button 
-            onClick={scrollToContact}
-            size="lg"
-            className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-4 font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+        <div className="flex flex-col items-center gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center px-4 w-full max-w-2xl"
           >
-            Contáctanos
-          </Button>
-          <Button 
+            <Button 
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-white text-primary hover:bg-white/90 text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+            >
+              Contáctanos
+            </Button>
+            <Button 
+              onClick={scrollToNext}
+              size="lg"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 font-semibold transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+            >
+              Conoce nuestros productos
+            </Button>
+          </motion.div>
+
+          {/* Descubre más centrado debajo */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="flex flex-col items-center gap-2 cursor-pointer"
             onClick={scrollToNext}
-            variant="outline"
-            size="lg"
-            className="border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
           >
-            Conoce nuestros productos
-          </Button>
-        </motion.div>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="flex flex-col items-center gap-2"
+            >
+              <span className="text-sm font-medium text-white">Descubre más</span>
+              <ChevronDown className="w-5 h-5 text-white" />
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Enhanced scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 cursor-pointer"
-          onClick={scrollToNext}
-        >
-          <span className="text-sm font-medium">Descubre más</span>
-          <ChevronDown className="w-6 h-6" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

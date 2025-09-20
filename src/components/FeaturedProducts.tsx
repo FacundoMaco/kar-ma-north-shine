@@ -19,7 +19,7 @@ const FeaturedProducts = () => {
       name: "Sal Industrial Grado A",
       category: "Industrial",
       description: "Sal de alta pureza para procesos industriales y manufactureros.",
-      image: "/src/assets/industrial-facility.jpg",
+      image: "/assets/industrial-facility.jpg",
       features: ["99.5% Pureza", "Granulometría controlada", "Bolsas 50kg"],
       featured: false
     },

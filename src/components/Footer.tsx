@@ -1,6 +1,4 @@
-import { Reveal } from "@/components/ui/reveal";
 import { CONTACT_EMAIL, CONTACT_PHONE } from "@/config";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
@@ -27,13 +25,7 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="py-12 border-b border-primary-foreground/20"
-        >
+        <div className="py-12 border-b border-primary-foreground/20">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               ¿Listo para trabajar con nosotros?
@@ -54,133 +46,105 @@ const Footer = () => {
               </Button>
               <Button 
                 onClick={handleWhatsAppClick}
-                variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg font-medium"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg font-medium"
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 WhatsApp
               </Button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Main Footer Content */}
         <div className="py-12">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
             {/* Logo y descripción */}
             <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center mb-6">
-                  <img 
-                    src="/assets/kar-ma-logo.png" 
-                    alt="Kar & Ma" 
-                    className="h-16 w-auto object-contain filter brightness-0 invert"
-                  />
+              <div className="flex items-center mb-6">
+                <img 
+                  src="/assets/kar-ma-logo.png" 
+                  alt="Kar & Ma" 
+                  className="h-16 w-auto object-contain filter brightness-0 invert"
+                />
+              </div>
+              <p className="text-primary-foreground/80 mb-6 max-w-lg text-lg leading-relaxed">
+                Consorcio peruano con más de 30 años de experiencia en la producción 
+                de sal retail e industrial, respaldado por la confianza del pueblo del norte.
+              </p>
+              
+              {/* Contact Info */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-primary-foreground/80">
+                  <MapPin className="w-5 h-5" />
+                  <span>Planta Industrial - Región Norte del Perú</span>
                 </div>
-                <p className="text-primary-foreground/80 mb-6 max-w-lg text-lg leading-relaxed">
-                  Consorcio peruano con más de 30 años de experiencia en la producción 
-                  de sal retail e industrial, respaldado por la confianza del pueblo del norte.
-                </p>
-                
-                {/* Contact Info */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-primary-foreground/80">
-                    <MapPin className="w-5 h-5" />
-                    <span>Planta Industrial - Región Norte del Perú</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-primary-foreground/80">
-                    <Phone className="w-5 h-5" />
-                    <span>+51 999 999 999</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-primary-foreground/80">
-                    <Mail className="w-5 h-5" />
-                    <span>contacto@karma.com.pe</span>
-                  </div>
+                <div className="flex items-center gap-3 text-primary-foreground/80">
+                  <Phone className="w-5 h-5" />
+                  <span>+51 999 999 999</span>
                 </div>
-              </motion.div>
+                <div className="flex items-center gap-3 text-primary-foreground/80">
+                  <Mail className="w-5 h-5" />
+                  <span>contacto@karma.com.pe</span>
+                </div>
+              </div>
             </div>
 
             {/* Productos */}
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-6">Nuestros Productos</h3>
-                <ul className="space-y-3 text-primary-foreground/80">
-                  <li className="hover:text-white transition-colors cursor-pointer">Sal Retail Premium</li>
-                  <li className="hover:text-white transition-colors cursor-pointer">Sal Industrial Grado A</li>
-                  <li className="hover:text-white transition-colors cursor-pointer">Marca Salina</li>
-                  <li className="hover:text-white transition-colors cursor-pointer">Marca Norteñita</li>
-                  <li className="hover:text-white transition-colors cursor-pointer">Sal Marina Natural</li>
-                </ul>
-              </motion.div>
+              <h3 className="text-xl font-bold mb-6">Nuestros Productos</h3>
+              <ul className="space-y-3 text-primary-foreground/80">
+                <li className="hover:text-white transition-colors cursor-pointer">Sal Retail Premium</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Sal Industrial Grado A</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Marca Salina</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Marca Norteñita</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Sal Marina Natural</li>
+              </ul>
             </div>
 
             {/* Enlaces */}
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-bold mb-6">Empresa</h3>
-                <ul className="space-y-3 text-primary-foreground/80">
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="hover:text-white transition-colors text-left"
-                    >
-                      Nosotros
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('submarcas')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="hover:text-white transition-colors text-left"
-                    >
-                      Submarcas
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('segmentos')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="hover:text-white transition-colors text-left"
-                    >
-                      Segmentos
-                    </button>
-                  </li>
-                  <li>
-                    <button 
-                      onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="hover:text-white transition-colors text-left"
-                    >
-                      Contacto
-                    </button>
-                  </li>
-                </ul>
-              </motion.div>
+              <h3 className="text-xl font-bold mb-6">Empresa</h3>
+              <ul className="space-y-3 text-primary-foreground/80">
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Nosotros
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('submarcas')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Submarcas
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('segmentos')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Segmentos
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Contacto
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="border-t border-primary-foreground/20 pt-8 pb-4"
-        >
+        <div className="border-t border-primary-foreground/20 pt-8 pb-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/60 text-center md:text-left">
               © {currentYear} Kar & Ma. Todos los derechos reservados. 
@@ -191,7 +155,7 @@ const Footer = () => {
               <span className="hover:text-white transition-colors cursor-pointer">Términos de Servicio</span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
