@@ -68,7 +68,7 @@ const FeaturedProducts = () => {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <Card className="h-full overflow-visible border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white flex flex-col">
                 <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                   {product.featured && (
                     <div className="absolute top-4 left-4 z-10">
@@ -90,35 +90,40 @@ const FeaturedProducts = () => {
                   </div>
                 </div>
 
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors">
-                    {product.name}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {product.description}
-                  </p>
+                <CardContent className="p-6 flex flex-col flex-1 min-h-[200px]">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors">
+                      {product.name}
+                    </h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {product.description}
+                    </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {product.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-medium"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {product.features.map((feature, featureIndex) => (
+                        <span
+                          key={featureIndex}
+                          className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-medium"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 group/btn"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Ver detalles
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </span>
-                  </Button>
+                  <div className="mt-auto pt-4 w-full">
+                    <Button 
+                      variant="outline"
+                      style={{ borderColor: '#22c55e', color: '#16a34a' }}
+                      className="w-full border-2 hover:bg-green-500 hover:text-white transition-all duration-300"
+                    >
+                      <span className="flex items-center justify-center gap-2 py-2 font-medium">
+                        Ver detalles
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -134,7 +139,7 @@ const FeaturedProducts = () => {
         >
           <Button 
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-medium"
+            className="bg-[#005C2C] hover:bg-[#005C2C]/90 text-white px-8 py-3 text-lg font-medium"
           >
             Ver todos los productos
           </Button>
