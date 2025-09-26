@@ -61,16 +61,19 @@ const ProductsPage = () => {
       <Header />
       
       {/* Hero Section con estilo similar a la página principal */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-white to-secondary/5">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.1)_50%,transparent_75%)] bg-[length:20px_20px]" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/assets/hero-image.jpg" 
+            alt="Salinas de Kar & Ma" 
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-primary-dark/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_4px_4px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:50px_50px] opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
         </div>
-        
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/5 rounded-full blur-lg animate-pulse delay-500"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -83,19 +86,19 @@ const ProductsPage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-8"
+              className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-full mb-8"
             >
-              <Search className="w-10 h-10 text-primary" />
+              <Search className="w-10 h-10 text-white" />
             </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight"
+              className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
             >
               Nuestros{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 Productos
               </span>
             </motion.h1>
@@ -104,7 +107,7 @@ const ProductsPage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8"
+              className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8"
             >
               Descubre nuestra amplia gama de productos de sal para diferentes necesidades industriales y comerciales
             </motion.p>
@@ -115,12 +118,12 @@ const ProductsPage = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium">{products.length} productos disponibles</span>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <div className="w-2 h-2 bg-secondary rounded-full animate-pulse delay-300"></div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
                 <span className="text-sm font-medium">2 categorías principales</span>
               </div>
             </motion.div>
@@ -145,7 +148,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Sección de filtros y búsqueda */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.1)_50%,transparent_75%)] bg-[length:20px_20px]" />
@@ -248,8 +251,12 @@ const ProductsPage = () => {
       </section>
 
       {/* Sección de productos */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.1)_50%,transparent_75%)] bg-[length:20px_20px]" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           {/* Grid de productos */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {filteredProducts.map((product, index) => (
@@ -262,7 +269,7 @@ const ProductsPage = () => {
                 className="group cursor-pointer"
                 onClick={() => setSelectedProduct(product)}
               >
-                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+                <Card className="h-full overflow-visible border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white flex flex-col">
                   <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                     {product.featured && (
                       <div className="absolute top-4 left-4 z-10">
@@ -294,8 +301,8 @@ const ProductsPage = () => {
                     </div>
                   </div>
 
-                  <CardContent className="p-6 flex flex-col h-full">
-                    <div className="flex-grow">
+                  <CardContent className="p-6 flex flex-col flex-1 min-h-[200px]">
+                    <div className="flex-1">
                       <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors line-clamp-2">
                         {product.name}
                       </h3>
@@ -316,15 +323,18 @@ const ProductsPage = () => {
                       </div>
                     </div>
 
-                    <Button 
-                      variant="outline" 
-                      className="w-full border-green-500 text-green-600 hover:bg-green-500 hover:text-white transition-all duration-300 group/btn mt-auto"
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Ver detalles
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                      </span>
-                    </Button>
+                    <div className="mt-auto pt-4 w-full">
+                      <Button 
+                        variant="outline"
+                        style={{ borderColor: '#22c55e', color: '#16a34a' }}
+                        className="w-full border-2 hover:bg-green-500 hover:text-white transition-all duration-300"
+                      >
+                        <span className="flex items-center justify-center gap-2 py-2 font-medium">
+                          Ver detalles
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                        </span>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -358,7 +368,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Estadísticas */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.1)_50%,transparent_75%)] bg-[length:20px_20px]" />

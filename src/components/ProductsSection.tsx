@@ -49,11 +49,6 @@ const ProductsSection = () => {
 
   return (
     <section id="productos" className="py-20 bg-gray-50 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,0,0,0.1)_50%,transparent_75%)] bg-[length:20px_20px]" />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -111,7 +106,7 @@ const ProductsSection = () => {
               className="group cursor-pointer"
               onClick={() => setSelectedProduct(product)}
             >
-              <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white">
+              <Card className="h-full overflow-visible border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white flex flex-col">
                 <div className="relative h-64 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                   {product.featured && (
                     <div className="absolute top-4 left-4 z-10">
@@ -144,8 +139,8 @@ const ProductsSection = () => {
                   </div>
                 </div>
 
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="flex-grow">
+                <CardContent className="p-6 flex flex-col flex-1 min-h-[200px]">
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors line-clamp-2">
                       {product.name}
                     </h3>
@@ -166,15 +161,16 @@ const ProductsSection = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 group/btn mt-auto"
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Ver detalles
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                    </span>
-                  </Button>
+                  <div className="mt-auto pt-4 w-full">
+                    <Button 
+                      className="w-full bg-[#005C2C] hover:bg-[#005C2C]/90 text-white transition-all duration-300"
+                    >
+                      <span className="flex items-center justify-center gap-2 py-2 font-medium">
+                        Ver detalles
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -192,7 +188,7 @@ const ProductsSection = () => {
           <Button 
             size="lg"
             onClick={() => navigate('/productos')}
-            className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-medium"
+            className="bg-[#005C2C] hover:bg-[#005C2C]/90 text-white px-8 py-3 text-lg font-medium"
           >
             Ver todos los productos
           </Button>
