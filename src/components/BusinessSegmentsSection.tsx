@@ -1,8 +1,33 @@
+import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Home, Factory } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Package, Factory } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 
 const BusinessSegmentsSection = () => {
+  const segments = [
+    {
+      id: "comercial",
+      title: "Comercial",
+      description: "Productos de sal premium para el consumidor final, con presentaciones innovadoras y calidad excepcional.",
+      icon: Package,
+      image: "/assets/retail-products.jpg",
+      cta: "Ver productos comerciales",
+      gradient: "from-blue-50 to-blue-100",
+      hoverGradient: "from-blue-100 to-blue-200"
+    },
+    {
+      id: "industrial",
+      title: "Industrial",
+      description: "Soluciones industriales de sal para procesos manufactureros, con especificaciones técnicas precisas.",
+      icon: Factory,
+      image: "/assets/industrial-facility.jpg",
+      cta: "Ver soluciones industriales",
+      gradient: "from-slate-50 to-slate-100",
+      hoverGradient: "from-slate-100 to-slate-200"
+    }
+  ];
+
   return (
     <section id="segmentos" className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
@@ -21,64 +46,67 @@ const BusinessSegmentsSection = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Sal Retail */}
-          <Reveal direction="left" delay={0.4} width="100%">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 bg-primary/10 flex items-center justify-center">
-                <div className="text-primary font-semibold">Productos Retail</div>
-              </div>
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-3 mb-4">
-                  <Home className="w-8 h-8 text-primary" />
-                  <h3 className="text-2xl font-semibold text-primary">Sal Retail</h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Dirigido al consumo doméstico y comercial pequeño. Ofrecemos productos 
-                  de sal refinada, sal marina y especialidades gastronómicas en presentaciones 
-                  adaptadas para el hogar, restaurantes y pequeños negocios.
-                </p>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-foreground">Productos incluidos:</h4>
-                  <ul className="text-muted-foreground space-y-1">
-                    <li>• Sal de mesa refinada</li>
-                    <li>• Sal marina natural</li>
-                    <li>• Sal yodada</li>
-                    <li>• Especialidades gastronómicas</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </Reveal>
-
-          {/* Sal Industrial */}
-          <Reveal direction="right" delay={0.6} width="100%">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 bg-primary/10 flex items-center justify-center">
-                <div className="text-primary font-semibold">Productos Industriales</div>
-              </div>
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-3 mb-4">
-                  <Factory className="w-8 h-8 text-primary" />
-                  <h3 className="text-2xl font-semibold text-primary">Sal Industrial</h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Soluciones especializadas para grandes empresas y sectores industriales. 
-                  Suministramos sal técnica, sal para procesamiento de alimentos, conservación 
-                  y aplicaciones industriales específicas.
-                </p>
-                <div className="space-y-2">
-                  <h4 className="font-semibold text-foreground">Sectores atendidos:</h4>
-                  <ul className="text-muted-foreground space-y-1">
-                    <li>• Industria alimentaria</li>
-                    <li>• Sector pesquero</li>
-                    <li>• Industria agrícola</li>
-                    <li>• Procesos industriales</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-          </Reveal>
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {segments.map((segment, index) => {
+            const IconComponent = segment.icon;
+            return (
+              <motion.div
+                key={segment.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+                className="group"
+              >
+                <Card className="h-full overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50">
+                  <div className="h-48 relative overflow-hidden">
+                    {/* Imagen de fondo */}
+                    <img 
+                      src={segment.image} 
+                      alt={segment.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent group-hover:from-primary/30 group-hover:via-primary/20 transition-all duration-500" />
+                    {/* Icono */}
+                    <div className="absolute top-6 left-6">
+                      <div className="w-12 h-12 bg-white/90 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-6 h-6 text-primary" />
+                      </div>
+                    </div>
+                    {/* Elemento decorativo */}
+                    <div className="absolute bottom-6 right-6">
+                      <div className="w-20 h-20 bg-white/20 rounded-full blur-xl group-hover:bg-white/30 transition-all duration-500" />
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-8">
+                    <motion.h3 
+                      className="text-2xl font-bold text-primary mb-4"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {segment.title}
+                    </motion.h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-lg">
+                      {segment.description}
+                    </p>
+                    
+                    <Button 
+                      variant="outline" 
+                      className="group/btn w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        {segment.cta}
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
 
         <div className="flex justify-center mt-12">

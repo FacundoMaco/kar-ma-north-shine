@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_PHONE } from "@/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   // Detectar scroll para cambiar el estado del navbar
   useEffect(() => {
@@ -88,7 +90,10 @@ const Header = () => {
             >
               <button 
                 type="button"
-                onClick={scrollToTop}
+                onClick={() => {
+                  navigate('/');
+                  setIsMenuOpen(false);
+                }}
                 className="flex items-center hover:scale-105 transition-all duration-500 ease-out"
               >
                 <div className="relative">
@@ -125,6 +130,16 @@ const Header = () => {
                 className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
               >
                 Submarcas
+              </button>
+              <button 
+                type="button"
+                onClick={() => {
+                  navigate('/productos');
+                  setIsMenuOpen(false);
+                }}
+                className="px-4 py-2 rounded-full text-sm font-medium text-foreground/90 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+              >
+                Productos
               </button>
               <button 
                 type="button"
@@ -181,6 +196,15 @@ const Header = () => {
                   className="text-left px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
                 >
                   Submarcas
+                </button>
+                <button 
+                  onClick={() => {
+                    navigate('/productos');
+                    setIsMenuOpen(false);
+                  }}
+                  className="text-left px-4 py-3 rounded-xl text-sm font-medium text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+                >
+                  Productos
                 </button>
                 <button 
                   onClick={() => scrollToSection('segmentos')}

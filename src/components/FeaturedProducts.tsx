@@ -90,29 +90,31 @@ const FeaturedProducts = () => {
                   </div>
                 </div>
 
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors">
-                    {product.name}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {product.description}
-                  </p>
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-primary/80 transition-colors">
+                      {product.name}
+                    </h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {product.description}
+                    </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {product.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-medium"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {product.features.map((feature, featureIndex) => (
+                        <span
+                          key={featureIndex}
+                          className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-medium"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <Button 
                     variant="outline" 
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 group/btn"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 group/btn mt-auto"
                   >
                     <span className="flex items-center justify-center gap-2">
                       Ver detalles
